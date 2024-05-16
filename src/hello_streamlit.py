@@ -5,7 +5,15 @@ st.header("An amazing YouTube video of a cave", anchor="Cave",
 st.subheader("(c) Rahul Swaminathan", anchor = None, help = None, divider = True)
 st.text("A really cool cave in Sardegna thats tight, loops under itself \n and beautiful to navigate inside")
 
+with st.sidebar:
+    choice = st.radio("Choose a video",
+        ("Groto del Fico", 
+         "Molnar Janos")
+    )
 
-youtube_url = "https://youtu.be/YTlhaPGLY68"  
+if(choice=="Groto del Fico"):
+    youtube_url = "https://youtu.be/YTlhaPGLY68"
+else:
+    youtube_url = "https://youtu.be/9VPt8MvPLm0"
+
 st.video(youtube_url)
-
