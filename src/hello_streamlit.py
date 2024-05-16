@@ -17,3 +17,21 @@ else:
     youtube_url = "https://youtu.be/9VPt8MvPLm0"
 
 st.video(youtube_url)
+
+
+import http
+import pandas as pd
+
+# /Users/srahul/Documents/Work/git_repo/streamlit_20240516/data/01_raw/PSCompPars_2023.09.06_16.02.03.csv
+url = "/Users/srahul/Documents/Work/git_repo/streamlit_20240516/data/01_raw/PSCompPars_2023.09.06_16.02.03.csv"
+url = st.text_input('The URL link')
+
+if url:
+    dfin = pd.read_csv(url)  # read a CSV file  from given URL
+    df = dfin.query("hostname=='11 Com'")
+    st.write(df)
+
+    st.scatter_chart(df, x="pl_rade", y = "pl_bmasse", color = "st_teff", size ="st_rad")
+
+# querystr = "hostname == " +  dfin['hostname'][0]
+#     df = dfin.query(querystr)
